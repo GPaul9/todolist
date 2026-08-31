@@ -1,0 +1,109 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.input {
+  @include text-md;
+  display: flex;
+  flex-direction: column;
+}
+
+.input__container {
+  position: relative;
+  width: 100%;
+}
+
+.input__label {
+  @include text-lg;
+  color: $color-text-primary;
+  margin-bottom: 4px;
+}
+
+.input__field {
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid $color-input-outline-primary;
+  transition: border-color 0.2s;
+  width: 100%;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: 0 0 0px 1000px white inset;
+  }
+
+  &::placeholder {
+    color: $color-text-disabled;
+  }
+
+  &:hover {
+    border-color: $color-input-outline-hover;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-input-outline-active;
+
+    &::placeholder {
+      color: $color-text-primary;
+    }
+  }
+
+  &.input__error {
+    border-color: $color-status-error;
+
+    &:placeholder-shown,
+    &:focus,
+    &:hover {
+      border-color: $color-status-error;
+    }
+  }
+
+  &.input__warning {
+    border-color: $color-status-warn;
+  }
+
+  &.input__success {
+    border-color: $color-status-success;
+  }
+
+  &.input__info {
+    @include text-md;
+  }
+}
+
+.input__right {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.input__bottom {
+  width: 100%;
+  display: block;
+}
+
+.input__help {
+  color: $color-text-disabled;
+}
+
+.input__message {
+  color: $color-status-error;
+
+  &.input__error {
+    color: $color-status-error;
+  }
+
+  &.input__warning {
+    color: $color-status-warn;
+  }
+
+  &.input__success {
+    color: $color-status-success;
+  }
+}

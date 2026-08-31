@@ -1,0 +1,49 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  padding: 40px;
+
+  @include respond-to(lg) {
+    padding: 40px 32px;
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  &__title {
+    @include h1;
+
+    margin: 0;
+    margin-bottom: 16px;
+    color: $color-text-primary;
+  }
+
+  &__descr {
+    @include text-lg;
+
+    color: $color-text-primary;
+  }
+
+  &__input-wrapper {
+    margin: 0;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__error {
+    @include hints;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    color: $color-status-error;
+  }
+}

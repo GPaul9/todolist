@@ -1,0 +1,56 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.badge {
+  --tag-active: color-mix(in srgb, var(--tag-color) 40%, transparent 60%);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 16px;
+  border: 1px solid;
+  border-radius: 100px;
+  color: var(--tag-color);
+  border-color: var(--tag-active);
+  cursor: pointer;
+  width: fit-content;
+
+  transition:
+    opacity 0.2s linear,
+    background-color 0.2s linear,
+    border 0.2s linear;
+
+  &:focus-visible,
+  &:hover {
+    background-color: var(--tag-active);
+    border-color: transparent;
+    opacity: 0.7;
+  }
+
+  &_removable {
+    padding: 4px 8px;
+  }
+
+  &__text {
+    @include hints;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  &_active {
+    background-color: var(--tag-active);
+    border-color: transparent;
+  }
+
+  &__delete {
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $color-icons-info;
+    }
+  }
+}

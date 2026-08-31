@@ -1,0 +1,106 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.tab {
+  @include hints;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 100px;
+  background-color: $color-btn-light;
+  color: $color-text-primary;
+  outline: none;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+
+  &:focus-visible {
+    background-color: $color-btn-focus;
+    color: $color-text-light;
+  }
+  &:hover {
+    background-color: $color-btn-hover;
+    color: $color-text-light;
+  }
+  &:active {
+    background-color: $color-btn-active;
+    color: $color-text-light;
+  }
+
+  &_active {
+    background-color: $color-btn-primary;
+    color: $color-text-light;
+  }
+
+  &_drop {
+    background-color: $color-drag-bg-hover;
+    color: $color-text-light;
+  }
+
+  &__title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    z-index: 170;
+  }
+
+  &__title-view {
+    @include hints;
+    padding: 8px 12px;
+    border-radius: 12px;
+    width: 240px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    background-color: $color-btn-light;
+    color: $color-text-primary;
+    z-index: 170;
+  }
+
+  &__input-container {
+    position: relative;
+    width: 240px;
+    z-index: 170;
+  }
+  &__input {
+    padding: 7px 12px;
+  }
+
+  &__input-message {
+    @include hints;
+    position: absolute;
+    left: 0;
+    bottom: -26px;
+
+    padding: 4px 8px;
+    width: auto;
+    border-radius: 12px;
+    background-color: $color-input-bg-disabled;
+    color: $color-text-secondary;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+    z-index: 170;
+
+    &_error {
+      background-color: $color-status-error-hover;
+      color: $color-status-error;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 8px 13px;
+    border-radius: 8px;
+    background-color: $color-icons-light;
+  }
+}

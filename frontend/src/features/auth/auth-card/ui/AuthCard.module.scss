@@ -1,0 +1,71 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 512px;
+  min-height: 730px;
+
+  @include respond-to(sm) {
+    gap: 20px;
+    padding: 24px;
+    min-height: auto;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+
+    @include respond-to(sm) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__logo {
+    @include respond-to(sm) {
+      max-width: 164px;
+    }
+  }
+
+  &__motion {
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    @include respond-to(sm) {
+      gap: 15px;
+    }
+  }
+
+  &__divider {
+    @include text-md;
+
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    color: $color-input-outline-primary;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+}

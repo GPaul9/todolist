@@ -1,0 +1,83 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.register {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__names {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__password {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &.isError {
+      .register__symbols {
+        color: $color-status-error;
+      }
+    }
+
+    &.isMedium {
+      .register__symbols {
+        color: $color-status-warn;
+      }
+    }
+
+    &.isSuccess {
+      .register__symbols {
+        color: $color-status-success;
+      }
+    }
+  }
+
+  &__symbols {
+    @include hints;
+    color: $color-text-disabled;
+    margin-top: 4px;
+    transition: color 0.3s ease;
+  }
+
+  &__strength {
+    width: 100%;
+  }
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: $color-text-primary;
+    cursor: pointer;
+  }
+
+  &__input {
+    @include checkbox;
+  }
+
+  &__message {
+    @include hints;
+    padding-left: 30px;
+    color: $color-status-error;
+  }
+}

@@ -1,0 +1,65 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.menu {
+  &__btn {
+    @include icon-button;
+
+    display: flex;
+  }
+
+  &__nav {
+    min-width: 226px;
+    z-index: 149;
+
+    @include respond-to(sm) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: $color-bg-card;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+      background-color: $color-scrollbar-thumb;
+    }
+  }
+
+  &__item {
+    @include icon-button;
+    @include text-md;
+    display: flex;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+
+    transition: background-color 0.3s linear;
+
+    &:focus-visible {
+      background-color: rgba($color-btn-focus, 0.4);
+    }
+    &:hover {
+      background-color: rgba($color-btn-hover, 0.2);
+    }
+    &:active {
+      background-color: rgba($color-btn-active, 0.2);
+    }
+  }
+}

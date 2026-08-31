@@ -1,0 +1,8 @@
+@use 'app/styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: $color-overlay;
+}

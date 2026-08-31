@@ -1,0 +1,22 @@
+@use 'app/styles/mixins' as *;
+
+.list {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  min-height: 0;
+
+  &__item {
+    flex: 0 0 400px;
+    max-width: 400px;
+    min-height: 0;
+    width: max-content;
+
+    @include respond-to(lg) {
+      max-width: 315px;
+    }
+    @include respond-to(md) {
+      max-width: 354px;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+
+  @include respond-to(sm) {
+    padding: 40px 32px;
+  }
+
+  &__header {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 28px;
+
+    @include respond-to(lg) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__title {
+    @include h1;
+
+    margin: 0;
+    margin-bottom: 16px;
+    color: $color-text-primary;
+
+    @include respond-to(lg) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__descr {
+    @include text-lg;
+
+    color: $color-text-primary;
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  &__input {
+    margin: 0;
+
+    @include respond-to(lg) {
+    }
+  }
+
+  &__link {
+    @include text-md;
+    @include text-button;
+    text-align: center;
+  }
+
+  &__block {
+    position: absolute;
+    inset: -10px;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background-color: $color-bg-card;
+  }
+
+  &__block-title {
+    @include h3;
+    margin: 0;
+    color: $color-text-primary;
+    text-align: center
+  }
+
+  &__block-descr {
+    @include text-md;
+    color: $color-text-primary;
+  }
+
+  &__block-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba($color-bg-login, 0.4);
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  &__block-icon {
+    width: 30px;
+    height: 30px;
+    fill: $color-icons-active;
+  }
+
+  &__block-timer {
+    @include text-md;
+    color: $color-text-primary;
+  }
+}

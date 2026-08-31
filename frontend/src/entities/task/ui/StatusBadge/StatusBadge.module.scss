@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+$status-colors: (
+  todo: (
+    text: $color-text-purple,
+    bg: $color-bg-priority-purple,
+  ),
+  in_progress: (
+    text: $color-text-yellow,
+    bg: $color-bg-priority-yellow,
+  ),
+  done: (
+    text: $color-text-green,
+    bg: $color-bg-priority-green,
+  ),
+);
+
+@function status-color($status, $type) {
+  @return map.get(map.get($status-colors, $status), $type);
+}
+
+.badge {
+  @include hints;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  min-width: 133px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  @each $status in todo, in_progress, done {
+    &_#{$status} {
+      color: status-color($status, text);
+      background-color: status-color($status, bg);
+
+      &:hover {
+        filter: brightness(0.95);
+      }
+    }
+  }
+
+  &__arrow {
+    width: 8px;
+    height: 14px;
+    fill: currentColor;
+
+    transition: transform 0.2s ease;
+    transform: rotate(90deg);
+
+    &_up {
+      transform: rotate(-90deg);
+    }
+  }
+}

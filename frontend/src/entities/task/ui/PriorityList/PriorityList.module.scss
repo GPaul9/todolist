@@ -1,0 +1,12 @@
+@use 'app/styles/mixins' as *;
+
+.list {
+  &.disabled {
+    @include disabled-state;
+  }
+  &__dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

@@ -1,0 +1,13 @@
+@use 'app/styles/variables' as *;
+
+.notice {
+  margin-bottom: 6px;
+  border-radius: 8px;
+  max-width: 325px;
+  width: 100%;
+  padding: 0;
+
+  &__progress {
+    background: rgba($color-loader-primary, 0.8);
+  }
+}

@@ -1,0 +1,17 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.button {
+  @include text-button;
+  @include icon-button;
+  @include text-md;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 15px;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+}

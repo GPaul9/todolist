@@ -1,0 +1,47 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 47px;
+  border-radius: 12px;
+  max-width: 352px;
+  width: 100%;
+  text-align: center;
+  background-color: $color-bg-card;
+
+  @include respond-to(sm) {
+    padding: 28px 12px;
+    max-width: 282px;
+  }
+
+  &__title {
+    @include h3;
+    margin: 0;
+    margin-bottom: 8px;
+    color: $color-text-primary;
+  }
+
+  &__descr {
+    @include text-md;
+    margin: 0;
+    margin-bottom: 16px;
+    color: $color-text-primary;
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__btn {
+    width: auto;
+    padding: 10px 24px;
+  }
+}

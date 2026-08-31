@@ -1,0 +1,23 @@
+@use 'app/styles/variables' as *;
+
+.modal {
+  &_modeX-left {
+    justify-content: flex-start;
+  }
+  &_modeX-center {
+    justify-content: center;
+  }
+  &_modeX-right {
+    justify-content: flex-end;
+  }
+
+  &_modeY-top {
+    align-items: flex-start;
+  }
+  &_modeY-center {
+    align-items: center;
+  }
+  &_modeY-bottom {
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,30 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.controls {
+  &__btn {
+    @include icon-button;
+  }
+  &__filter-icon {
+    fill: #3c7ed1;
+  }
+}
+
+.dropdown {
+  min-width: 226px;
+  z-index: 149;
+
+  @include respond-to(sm) {
+    width: 100%;
+  }
+
+  &__content {
+    overflow-y: auto;
+    max-height: 85vh;
+    padding: 27px 22px 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: $color-bg-card;
+  }
+}

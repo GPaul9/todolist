@@ -1,0 +1,63 @@
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  touch-action: none;
+}
+
+.controls {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 7px 9px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  border-radius: 1000px;
+  font-size: 22px;
+  z-index: 210;
+
+  &__score-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 6px 10px;
+    border-radius: 1000px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    background-color: rgba(#000, 0.6);
+  }
+
+  &__score-icon {
+    width: 35px;
+    height: 35px;
+    opacity: 0.8;
+    fill: #000;
+  }
+
+  &__score {
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  &__btn-close {
+    padding: 10px;
+    border-radius: 1000px;
+    color: #fff;
+    background-color: rgba(#000, 0.6);
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+  }
+}

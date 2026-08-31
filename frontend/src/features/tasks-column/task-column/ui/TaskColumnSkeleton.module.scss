@@ -1,0 +1,44 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.column {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  background-color: $color-skeleton-primary;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+
+    &_center {
+      justify-content: center;
+    }
+  }
+
+  &__header {
+    padding: 32px 20px 24px;
+  }
+
+  &__tasks {
+    width: 100%;
+    padding: 0 1px 20px 10px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+
+  &__title {
+    margin-bottom: 33px;
+  }
+
+  &__action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

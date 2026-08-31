@@ -1,0 +1,94 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.picker {
+  &__root {
+    max-width: 234px;
+  }
+
+  &__month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px 16px;
+    flex-wrap: wrap;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__weekday {
+    @include text-md;
+    text-transform: uppercase;
+    color: $color-text-primary;
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 0;
+    margin-bottom: 2px;
+    gap: 11px;
+  }
+
+  &__weeks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 133px;
+  }
+
+  &__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px 10px;
+    width: 100%;
+  }
+
+  &__day-btn {
+    color: inherit;
+    width: 100%;
+
+    &:disabled {
+      color: $color-btn-disabled;
+      cursor: default;
+    }
+  }
+
+  &__day {
+    @include hints;
+    padding: 1px 2px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    text-align: center;
+    color: $color-text-primary;
+  }
+
+  &__day-disabled {
+    color: $color-btn-disabled;
+  }
+
+  &__outside-day {
+    color: $color-text-disabled;
+  }
+
+  &__day-start,
+  &__day-end {
+    background-color: $color-btn-active;
+    color: $color-text-light;
+  }
+
+  &__day-middle {
+    border-color: $color-btn-hover;
+    background-color: rgba($color-btn-hover, 0.2);
+    color: $color-text-secondary;
+  }
+
+  &__day_selected {
+    background-color: $color-btn-active;
+    color: $color-text-light;
+  }
+}

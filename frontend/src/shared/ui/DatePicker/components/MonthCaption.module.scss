@@ -1,0 +1,10 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.caption {
+  @include h3;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-text-primary;
+  min-width: 78px;
+}

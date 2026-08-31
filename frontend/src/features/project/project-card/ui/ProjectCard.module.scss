@@ -1,0 +1,123 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background-color: $color-bg-card;
+  border-radius: 9px;
+  border: 1px solid $color-input-outline-hover;
+  width: 100%;
+  height: 100%;
+  transition:
+    background-color 0.3s ease,
+    border 0.3s ease,
+    scale 0.3s ease;
+
+  &:hover {
+    background-color: $color-bg-card-hover;
+    border-color: $color-bg-card-hover;
+    scale: 1.02;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+  }
+
+  &__header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    @include h2;
+    margin: 0;
+    color: $color-text-primary;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__id {
+    @include hints;
+    color: $color-text-disabled;
+  }
+
+  &__tasks {
+    @include text-lg;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__total-tasks {
+    color: $color-text-primary;
+
+    &_empty {
+      color: $color-text-disabled;
+    }
+  }
+
+  &__completed-tasks {
+    display: flex;
+    gap: 7px;
+    color: $color-text-green;
+
+    &_empty {
+      color: $color-text-disabled;
+    }
+  }
+
+  &__completed-tasks-icon {
+    stroke: $color-text-green;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+
+    &_empty {
+      stroke: $color-text-disabled;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__date-created {
+    @include text-md;
+    color: $color-text-primary;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn-open {
+    width: auto;
+  }
+
+  &__actions-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__actions-btn {
+    @include icon-button;
+  }
+}

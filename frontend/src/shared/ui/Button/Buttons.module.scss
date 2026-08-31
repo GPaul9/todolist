@@ -1,0 +1,115 @@
+@use 'app/styles/variables' as *;
+
+.button {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  border: 1px solid;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  transition:
+    border 0.4s ease,
+    background-color 0.4s ease,
+    color 0.4s ease,
+    top 0.4s ease;
+  outline: none;
+
+  &[data-kind='primary'] {
+    border-color: $color-btn-primary;
+    background-color: $color-btn-primary;
+    color: $color-btn-light;
+
+    &:focus-visible {
+      border-color: $color-btn-focus;
+      background-color: $color-btn-focus;
+    }
+
+    &:hover {
+      border-color: $color-btn-hover;
+      background-color: $color-btn-hover;
+    }
+
+    &:active {
+      top: 2px;
+      border-color: $color-btn-active;
+      background-color: $color-btn-active;
+    }
+  }
+
+  &[data-kind='secondary'] {
+    border-color: $color-btn-secondary;
+    background-color: $color-btn-secondary;
+    color: $color-btn-primary;
+
+    &:focus-visible {
+      border-color: $color-btn-secondary;
+      background-color: $color-btn-secondary;
+      color: $color-btn-hover;
+    }
+
+    &:hover {
+      border-color: $color-btn-secondary;
+      background-color: $color-btn-secondary;
+      color: $color-btn-hover;
+    }
+
+    &:active {
+      top: 2px;
+      border-color: $color-btn-secondary;
+      background-color: $color-btn-secondary;
+      color: $color-btn-primary;
+    }
+  }
+
+  &[data-kind='outline'] {
+    border-color: $color-btn-primary;
+    background-color: $color-btn-secondary;
+    color: $color-btn-primary;
+
+    &:focus-visible {
+      border-color: $color-btn-hover;
+      background-color: $color-btn-secondary;
+      color: $color-btn-hover;
+    }
+
+    &:hover {
+      border-color: $color-btn-hover;
+      background-color: $color-btn-secondary;
+      color: $color-btn-hover;
+    }
+
+    &:active {
+      top: 2px;
+      border-color: $color-btn-active;
+      background-color: $color-btn-secondary;
+      color: $color-btn-active;
+    }
+  }
+
+  &[data-kind='primary']:disabled,
+  &[data-kind='secondary']:disabled,
+  &[data-kind='outline']:disabled {
+    pointer-events: none;
+    color: $color-btn-disabled-outline;
+    border-color: $color-btn-disabled;
+    background-color: $color-btn-disabled;
+  }
+
+  &_loading .button__content {
+    visibility: hidden;
+  }
+
+  &__loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

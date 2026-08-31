@@ -1,0 +1,36 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    @include h2;
+  }
+
+  &__input {
+    @include text-lg;
+  }
+
+  &__date {
+    @include hints;
+    color: $color-text-disabled;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__statuses {
+    display: flex;
+    justify-content: space-between;
+  }
+}

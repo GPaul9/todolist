@@ -1,0 +1,20 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.profile {
+  padding: 40px 0;
+
+  @include respond-to(md) {
+    padding: 20px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include respond-to(sm) {
+      gap: 20px;
+    }
+  }
+}

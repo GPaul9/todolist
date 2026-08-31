@@ -1,0 +1,91 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 40px 20px;
+  border-radius: 8px 0 0 8px;
+  max-width: 673px;
+  width: 100%;
+  height: 95vh;
+  background-color: $color-bg-card;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+
+  @include respond-to(lg) {
+    gap: 16px;
+    border-radius: 8px 8px 0 0;
+    height: 90vh;
+    max-width: 559px;
+  }
+  @include respond-to(md) {
+    padding: 24px 20px;
+    height: 70vh;
+    max-width: stretch;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px;
+      width: 80px;
+      height: 4px;
+      background-color: #c2c2c2;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: end;
+    gap: 12px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    @include respond-to(lg) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__descr {
+    margin-bottom: 4px;
+  }
+  &__date {
+    margin-bottom: 10px;
+  }
+  &__status {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @include respond-to(lg) {
+      order: -1;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.skeleton-descr {
+  background-color: transparent;
+  border: 1px solid $color-skeleton-primary;
+}

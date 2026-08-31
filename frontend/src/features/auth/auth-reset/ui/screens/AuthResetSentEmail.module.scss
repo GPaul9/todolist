@@ -1,0 +1,31 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+
+  @include respond-to(sm) {
+    padding: 40px 32px;
+  }
+
+  &__title {
+    @include h1;
+
+    margin: 0;
+    margin-bottom: 16px;
+    color: $color-text-primary;
+  }
+
+  &__descr {
+    @include text-lg;
+
+    margin: 0;
+    margin-bottom: 28px;
+    color: $color-text-primary;
+  }
+}

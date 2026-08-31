@@ -1,0 +1,53 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.text {
+  @include text-md;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid $color-input-outline-primary;
+    transition: border-color 0.2s;
+    border-radius: 4px;
+    background-color: $color-bg-card;
+    resize: none;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: inherit;
+      transition: background-color 5000s ease-in-out 0s;
+      box-shadow: 0 0 0px 1000px white inset;
+    }
+
+    &::placeholder {
+      color: $color-text-disabled;
+    }
+
+    &:hover {
+      border-color: $color-input-outline-hover;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-input-outline-active;
+
+      &::placeholder {
+        color: $color-text-primary;
+      }
+    }
+  }
+
+  &__count {
+    color: $color-text-disabled;
+    pointer-events: none;
+  }
+}

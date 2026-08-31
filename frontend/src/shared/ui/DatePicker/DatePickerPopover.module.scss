@@ -1,0 +1,13 @@
+@use 'app/styles/variables' as *;
+
+.dropdown {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 21px 15px;
+    background-color: $color-bg-calendar;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}

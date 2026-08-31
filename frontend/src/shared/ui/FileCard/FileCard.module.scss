@@ -1,0 +1,52 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.files {
+  &__fileCard {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100px;
+    height: 56px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid $color-icons-primary;
+    background-color: $color-bg-card;
+    box-sizing: border-box;
+  }
+
+  &__fileDownloadBtn {
+    width: 100%;
+    min-width: 0;
+    cursor: pointer;
+  }
+
+  &__fileName {
+    @include hints;
+
+    color: $color-text-primary;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__fileBottom {
+    @include hints;
+    color: $color-icons-info;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__fileDelete {
+    @include icon-button;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

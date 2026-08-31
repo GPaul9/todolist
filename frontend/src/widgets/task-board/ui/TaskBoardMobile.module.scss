@@ -1,0 +1,80 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 10px;
+
+  &__columns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__column-list-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    margin: -4px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &_edit {
+      padding-bottom: 39px;
+      margin-bottom: -39px;
+      overflow-x: hidden;
+    }
+  }
+
+  &__column-list {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__column-item_drop {
+    z-index: 170;
+  }
+
+  &__tasks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__drag-helper {
+    @include hints;
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 4px 8px;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    background-color: $color-input-bg-disabled;
+    color: $color-text-secondary;
+    z-index: 161;
+  }
+}

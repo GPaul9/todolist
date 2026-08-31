@@ -1,0 +1,71 @@
+@use 'app/styles/variables' as *;
+
+.card {
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 10px;
+  border-radius: 8px;
+  background-color: $color-skeleton-primary;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__row {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    width: 65px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    flex: 1;
+    max-width: 216px;
+  }
+  &__hints {
+    flex: 1;
+    max-width: 80px;
+  }
+  &__descr {
+    flex: 1;
+    max-width: 185px;
+  }
+  &__icon {
+    flex: 1;
+    max-width: 24px;
+  }
+  &__btn {
+    flex: 1;
+    max-width: 140px;
+  }
+}
+
+.skeleton-flex {
+  flex: 1;
+}

@@ -1,0 +1,51 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 64px 60px 76px;
+  border-radius: 16px;
+  background:
+    url('../../../assets/auth-promo-bg.svg') center center no-repeat,
+    linear-gradient(
+      232.59deg,
+      rgba(37.54, 78.15, 236.61, 1) 14.342%,
+      rgba(86.7, 161.67, 247.35, 1) 90.691%
+    );
+  background-size: cover;
+  width: 100%;
+
+  @include respond-to(xl) {
+    padding: 20px 32px 30px 38px;
+  }
+
+  &__img {
+    margin: 0;
+    margin-bottom: 45px;
+    width: 100%;
+    aspect-ratio: 541/369;
+  }
+
+  &__content {
+    max-width: 541px;
+    width: 100%;
+    text-align: center;
+    color: $color-text-light;
+  }
+
+  &__title {
+    @include h1;
+
+    margin: 0;
+    margin-bottom: 12px;
+    max-width: 520px;
+  }
+
+  &__descr {
+    @include h2;
+  }
+}

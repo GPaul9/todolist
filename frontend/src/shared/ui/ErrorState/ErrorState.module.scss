@@ -1,0 +1,65 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.errorState {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+
+    @include respond-to(lg) {
+      gap: 32px;
+    }
+    @include respond-to(sm) {
+      gap: 24px;
+    }
+  }
+
+  &__img {
+    max-width: 430px;
+    width: 100%;
+    aspect-ratio: 430 / 94;
+
+    @include respond-to(sm) {
+      max-width: 242px;
+    }
+  }
+
+  &__title {
+    @include h1;
+    margin: 0;
+    margin-bottom: 12px;
+    color: $color-text-primary;
+  }
+
+  &__descr {
+    @include text-lg;
+    color: $color-text-secondary;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__btn {
+    width: auto;
+    margin-bottom: 17px;
+  }
+
+  &__link {
+    @include text-button;
+    @include text-md;
+  }
+}

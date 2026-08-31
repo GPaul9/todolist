@@ -1,0 +1,13 @@
+@use 'app/styles/mixins' as *;
+
+.btn {
+  width: auto;
+}
+
+.btn-mobile {
+  @include icon-button;
+  & > svg {
+    width: 30px;
+    height: 30px;
+  }
+}

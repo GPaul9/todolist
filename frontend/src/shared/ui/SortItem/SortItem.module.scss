@@ -1,0 +1,32 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.item {
+  min-width: 150px;
+  text-align: start;
+  @include text-md;
+  position: relative;
+  padding: 0;
+  padding-left: 28px;
+  color: $color-text-primary;
+  cursor: pointer;
+  outline: none;
+
+  &:focus-visible {
+    outline: 1px solid $color-btn-focus;
+    outline-offset: 2px;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 24px;
+    height: 9px;
+    transform: translateY(-50%);
+
+    &_active {
+      transform: rotate(180deg) translateY(50%);
+    }
+  }
+}

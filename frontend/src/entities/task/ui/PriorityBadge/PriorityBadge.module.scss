@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+$priority-colors: (
+  low: (
+    base: $color-priority-low,
+    hover: $color-priority-low-hover,
+  ),
+  medium: (
+    base: $color-priority-medium,
+    hover: $color-priority-medium-hover,
+  ),
+  high: (
+    base: $color-priority-high,
+    hover: $color-priority-high-hover,
+  ),
+);
+
+@function priority-color($priority, $state) {
+  @return map.get(map.get($priority-colors, $priority), $state);
+}
+
+.badge {
+  @include hints;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: 1px solid;
+  border-radius: 12px;
+  min-width: 81px;
+  background: $color-bg-card;
+  cursor: pointer;
+  outline: none;
+  transition:
+    color 0.2s linear,
+    background-color 0.2s linear,
+    border 0.2s linear;
+
+  @each $priority in low, medium, high {
+    &_#{$priority} {
+      color: priority-color($priority, base);
+      border-color: priority-color($priority, base);
+
+      &:focus-visible,
+      &:hover,
+      &:active {
+        border-color: priority-color($priority, hover);
+        background: priority-color($priority, hover);
+      }
+    }
+
+    &_#{$priority}-active {
+      border-color: priority-color($priority, hover);
+      background: priority-color($priority, hover);
+    }
+  }
+
+  &__icon {
+    width: 10px;
+    height: 7px;
+    stroke: currentColor;
+
+    &_high {
+      transform: rotate(180deg);
+    }
+  }
+}

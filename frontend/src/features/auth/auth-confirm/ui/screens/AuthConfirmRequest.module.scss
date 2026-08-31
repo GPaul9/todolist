@@ -1,0 +1,101 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 53px 32px;
+  text-align: center;
+  max-width: 501px;
+
+  @include respond-to(xl) {
+    padding: 40px;
+  }
+  @include respond-to(sm) {
+    padding: 40px 20px;
+  }
+
+  &__title {
+    @include h1;
+
+    margin: 0;
+    margin-bottom: 16px;
+    color: $color-text-primary;
+
+    &_break {
+      display: none;
+      @include respond-to(xl) {
+        display: block;
+      }
+    }
+  }
+
+  &__descr {
+    @include text-lg;
+
+    margin: 0;
+    margin-bottom: 28px;
+    color: $color-text-primary;
+
+    &_break {
+      display: none;
+      @include respond-to(xl) {
+        display: block;
+      }
+    }
+
+    &_position {
+      margin-bottom: 8px;
+
+      @include respond-to(lg) {
+        margin-bottom: 36px;
+      }
+    }
+
+    &_email {
+      color: $color-text-active;
+    }
+  }
+
+  &__wrapper {
+    @include hints;
+
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 24px;
+    color: $color-text-secondary;
+
+    @include respond-to(lg) {
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 34px;
+    }
+  }
+
+  &__icon {
+    margin: 0;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__link {
+    @include text-md;
+    @include text-button;
+
+    display: block;
+  }
+}

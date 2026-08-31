@@ -1,0 +1,80 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.layout {
+  display: flex;
+  padding: 28px 0;
+  min-height: 100vh;
+  background-color: $color-bg-login;
+
+  @include respond-to(lg) {
+    background:
+      url('../../../assets/auth-promo-bg-lg.svg') center center no-repeat,
+      linear-gradient(
+        232.59deg,
+        rgba(37.54, 78.15, 236.61, 1) 14.342%,
+        rgba(86.7, 161.67, 247.35, 1) 90.691%
+      );
+    background-size: cover;
+  }
+  @include respond-to(md) {
+    background:
+      url('../../../assets/auth-promo-bg-md.svg') center center no-repeat,
+      linear-gradient(
+        232.59deg,
+        rgba(37.54, 78.15, 236.61, 1) 14.342%,
+        rgba(86.7, 161.67, 247.35, 1) 90.691%
+      );
+    background-size: cover;
+  }
+  @include respond-to(sm) {
+    padding: 33px 0;
+    background:
+      url('../../../assets/auth-promo-bg-sm.svg') center center no-repeat,
+      linear-gradient(
+        232.59deg,
+        rgba(37.54, 78.15, 236.61, 1) 14.342%,
+        rgba(86.7, 161.67, 247.35, 1) 90.691%
+      );
+    background-size: cover;
+  }
+
+  &__container {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 110px;
+    margin: 0 auto;
+    padding-left: 108px;
+    padding-right: 28px;
+    max-width: 1440px;
+
+    & > * {
+      flex: 1;
+    }
+
+    @include respond-to(xl) {
+      gap: 50px;
+    }
+    @include respond-to(lg) {
+      align-items: center;
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+    @include respond-to(sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__auth-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 512px;
+    width: 100%;
+    background-color: $color-bg-card;
+    border-radius: 8px;
+  }
+}

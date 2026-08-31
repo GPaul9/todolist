@@ -1,0 +1,41 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.switcher {
+  min-width: 171px;
+  position: relative;
+
+  &__buttons {
+    display: flex;
+    border: 1px solid $color-btn-primary;
+    border-radius: 8px;
+    width: 100%;
+    background-color: $color-btn-secondary;
+  }
+
+  &__btn {
+    @include text-md;
+    flex: 1;
+    padding: 9px 16px;
+    border-radius: inherit;
+    color: $color-btn-primary;
+    background: transparent;
+    z-index: 1;
+    outline: none;
+    transition: color 0.3s linear;
+
+    &_active {
+      color: $color-text-light;
+    }
+  }
+
+  &__border {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: $color-btn-primary;
+    border-radius: 8px;
+    z-index: 0;
+    pointer-events: none;
+  }
+}

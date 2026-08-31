@@ -1,0 +1,99 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.table {
+  &__row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    align-items: center;
+    padding: 12px 8px;
+    border-bottom: 0.5px solid $color-input-outline-primary;
+
+    @include respond-to(md) {
+      grid-template-columns: 2fr 1fr 2fr 1fr;
+    }
+  }
+
+  &__header {
+    @include text-md;
+    border-bottom: 1px solid $color-input-outline-primary;
+
+    div {
+      text-align: center;
+      &:first-child {
+        text-align: left;
+
+        @include respond-to(sm) {
+          text-align: center;
+        }
+      }
+    }
+
+    @include respond-to(sm) {
+      @include hints;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  &__color {
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.6) 50%);
+  }
+
+  &__tasks {
+    @include hints;
+    text-align: center;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__number {
+    @include text-button;
+  }
+
+  &__link {
+    @include hints;
+    @include text-button;
+    @include icon-button;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    svg {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__btn {
+    position: relative;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include icon-button;
+  }
+}

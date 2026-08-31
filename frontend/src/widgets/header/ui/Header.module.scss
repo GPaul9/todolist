@@ -1,0 +1,53 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 22px 0;
+  background-color: $color-bg-card;
+  z-index: 150;
+
+  @include respond-to(lg) {
+    padding: 13px 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    object-fit: contain;
+    max-width: 241px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 6px;
+
+    @include respond-to(lg) {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+
+  &__divider {
+    width: 1px;
+    height: 24px;
+    background-color: $color-text-disabled;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+  }
+
+  &__icon {
+    @include icon-button;
+  }
+}

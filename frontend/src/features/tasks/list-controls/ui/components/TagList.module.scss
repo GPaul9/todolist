@@ -1,0 +1,19 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 390px;
+
+  &__item {
+    max-width: 120px;
+  }
+
+  &__empty {
+    @include hints;
+    max-width: 320px;
+    color: $color-text-secondary;
+  }
+}

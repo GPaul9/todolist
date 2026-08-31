@@ -1,0 +1,25 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  @include text-md;
+
+  &__link {
+    @include text-button;
+
+    color: $color-text-secondary;
+  }
+
+  &__current {
+    color: $color-text-active;
+  }
+
+  &__separator {
+    width: 10px;
+    height: 10px;
+  }
+}

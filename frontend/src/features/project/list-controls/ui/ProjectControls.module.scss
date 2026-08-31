@@ -1,0 +1,40 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.controls {
+  &__search {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 12px 10px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    @include respond-to(sm) {
+      gap: 14px;
+    }
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
+  }
+
+  &__title {
+    @include h3;
+    margin: 0;
+    margin-bottom: 12px;
+    color: $color-text-primary;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,94 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+@use 'sass:map';
+
+@mixin respond-to($name) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Нет брейкпоинта с именем #{$name}";
+  }
+}
+
+@mixin text-button {
+  color: $color-btn-primary;
+  outline: none;
+  transition: color 0.4s ease;
+
+  &:focus-visible {
+    color: $color-btn-focus;
+  }
+  &:hover {
+    color: $color-btn-hover;
+  }
+  &:active {
+    color: $color-btn-active;
+  }
+  &:disabled {
+    color: $color-btn-disabled;
+  }
+}
+
+@mixin icon-button {
+  outline: none;
+
+  > svg {
+    height: 24px;
+    width: 24px;
+    flex-shrink: 0;
+    fill: $color-icons-primary;
+    transition: fill 0.4s ease;
+  }
+
+  &:focus-visible > svg {
+    fill: $color-icons-hover;
+  }
+  &:hover > svg {
+    fill: $color-icons-hover;
+  }
+  &:active > svg {
+    fill: $color-icons-active;
+  }
+  &:disabled > svg {
+    fill: $color-icons-info;
+    cursor: default;
+  }
+}
+
+@mixin checkbox {
+  position: relative;
+  appearance: none;
+  flex-shrink: 0;
+  border: 2px solid #3c7be1;
+  border-radius: 6px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition:
+    border 0.4s linear,
+    top 0.4s linear;
+  outline: none;
+
+  &:focus-visible {
+    border-color: $color-btn-focus;
+  }
+  &:active {
+    top: 1px;
+  }
+
+  &:checked {
+    background: url('../../assets/check-icon.svg') center center no-repeat;
+    background-color: #3c7be1;
+  }
+}
+
+@mixin disabled-state {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+}

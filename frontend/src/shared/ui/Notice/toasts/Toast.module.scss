@@ -1,0 +1,37 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.toast {
+  @include text-lg;
+  display: flex;
+  align-items: center;
+  border-radius: inherit;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 14px 19px;
+  color: $color-text-primary;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 8px;
+    border-bottom-left-radius: inherit;
+    border-top-left-radius: inherit;
+  }
+
+  &_success::before {
+    background-color: $color-status-success;
+  }
+  &_error::before {
+    background-color: $color-status-error;
+  }
+}

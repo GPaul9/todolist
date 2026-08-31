@@ -1,0 +1,38 @@
+@use 'app/styles/variables' as *;
+
+.button {
+  position: relative;
+  outline: none;
+
+  > svg {
+    height: 32px;
+    width: 32px;
+    flex-shrink: 0;
+    stroke: $color-icons-primary;
+    transition: fill 0.4s ease;
+  }
+
+  &:focus-visible > svg {
+    stroke: $color-icons-hover;
+  }
+  &:hover > svg {
+    stroke: $color-icons-hover;
+  }
+  &:active > svg {
+    stroke: $color-icons-active;
+  }
+  &:disabled > svg {
+    stroke: $color-icons-info;
+    cursor: default;
+  }
+
+  &:disabled::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9px;
+    background-color: $color-icons-info;
+    z-index: 2;
+    cursor: default;
+  }
+}

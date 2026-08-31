@@ -1,0 +1,160 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.subtasks {
+  color: $color-text-primary;
+
+  &__top {
+    @include text-lg;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  &__create {
+    outline: none;
+
+    > svg {
+      height: 24px;
+      width: 24px;
+      flex-shrink: 0;
+      stroke: $color-icons-primary;
+      transition: fill 0.4s ease;
+    }
+
+    &:focus-visible > svg {
+      stroke: $color-icons-hover;
+    }
+    &:hover > svg {
+      stroke: $color-icons-hover;
+    }
+    &:active > svg {
+      stroke: $color-icons-active;
+    }
+    &:disabled > svg {
+      stroke: $color-icons-info;
+      cursor: default;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+  }
+
+  &__left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+  }
+
+  &__checkbox {
+    @include checkbox;
+
+    &:disabled {
+      @include disabled-state;
+    }
+  }
+
+  &__name {
+    @include text-md;
+    color: $color-text-primary;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-all;
+
+    &.done {
+      color: $color-text-disabled;
+    }
+  }
+
+  &__inputContainer {
+    width: 100%;
+    flex: 1;
+  }
+
+  &__delete {
+    @include text-md;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background-color: $color-status-error-hover;
+    color: $color-status-error;
+    margin-left: 8px;
+
+    &:hover {
+      background-color: $color-status-error;
+      color: $color-status-error-hover;
+    }
+
+    &:active {
+      background-color: $color-status-error;
+      color: $color-status-error-hover;
+    }
+  }
+
+  &__attach {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: $color-icons-hover;
+    border: 1px solid $color-icons-primary;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: $color-btn-secondary;
+    margin-left: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.active {
+      color: $color-icons-primary;
+      border-color: $color-icons-primary;
+    }
+
+    &:focus-visible {
+      color: $color-icons-hover;
+      border-color: $color-icons-hover;
+    }
+
+    &:hover {
+      color: $color-icons-active;
+    }
+
+    &:active {
+      color: $color-icons-hover;
+      border-color: $color-icons-hover;
+    }
+  }
+}
+
+.swipe {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    background-color: $color-bg-card;
+    width: 100%;
+    will-change: transform;
+  }
+}

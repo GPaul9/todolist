@@ -1,0 +1,122 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.column {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  background-color: $color-bg-card-list;
+
+  &__header {
+    padding: 25px 20px 16px;
+    flex: 0 0 auto;
+  }
+
+  &__tasks-wrapper {
+    position: relative;
+    min-height: 0;
+    display: flex;
+    height: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      background-color: $color-drag-bg-zone;
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      border: 5px dashed $color-drag-bg-border;
+      border-radius: 8px;
+      background: url(../../../../assets/drop-zone-icon.svg) center center no-repeat;
+      background-size: cover;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    &_drop::before {
+      opacity: 0.8;
+    }
+
+    &_drop::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &__tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    padding: 0 1px 20px 10px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    &_right {
+      justify-content: end;
+    }
+  }
+
+  &__title {
+    @include h2;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__project-btn {
+    @include text-button;
+    @include icon-button;
+    @include hints;
+    display: flex;
+    gap: 4px;
+
+    & > svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

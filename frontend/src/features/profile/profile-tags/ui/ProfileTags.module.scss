@@ -1,0 +1,36 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include respond-to(sm) {
+    gap: 16px;
+  }
+
+  &__title {
+    @include h1;
+    margin: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: $color-bg-card;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  &__btn {
+    width: unset;
+    align-self: start;
+
+    @include respond-to(md) {
+      align-self: unset;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+
+.add {
+  background-color: $color-bg-card;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  min-width: 320px;
+  position: relative;
+
+  &__title {
+    @include h2;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__close {
+    @include icon-button;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  &__mode {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__list {
+    @include text-lg;
+    color: $color-text-primary;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: $color-icons-hover;
+    border: 1px solid $color-icons-primary;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: $color-btn-secondary;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.active {
+      color: $color-icons-primary;
+      border-color: $color-icons-primary;
+    }
+
+    &:focus-visible {
+      color: $color-icons-hover;
+      border-color: $color-icons-hover;
+    }
+
+    &:hover {
+      color: $color-icons-active;
+    }
+
+    &:active {
+      color: $color-icons-hover;
+      border-color: $color-icons-hover;
+    }
+  }
+
+  &__empty {
+    @include hints;
+    color: $color-text-disabled;
+    align-self: center;
+  }
+}

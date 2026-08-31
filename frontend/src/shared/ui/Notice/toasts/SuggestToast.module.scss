@@ -1,0 +1,63 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.toast {
+  @include text-lg;
+  display: flex;
+  align-items: center;
+  border-radius: inherit;
+  flex-wrap: nowrap;
+  gap: 4px;
+  padding: 10px 10px;
+  color: $color-text-primary;
+
+  &_suggestComplete {
+    background-color: rgba($color-status-success, 0.03);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+
+    &_suggestComplete {
+      fill: $color-status-success;
+      stroke: $color-status-success;
+    }
+  }
+
+  &__title {
+    @include text-md;
+    margin: 0;
+    margin-bottom: 2px;
+    color: $color-text-primary;
+  }
+
+  &__descr {
+    @include hints;
+    color: $color-text-primary;
+  }
+
+  &__btn {
+    padding: 1px;
+    background-color: $color-status-success;
+    border-radius: 10px;
+    outline: none;
+
+    &:focus-visible,
+    &:hover {
+      background-color: rgba($color-status-success, 0.8);
+    }
+
+    &:active {
+      background-color: rgba($color-status-success, 0.6);
+    }
+  }
+
+  &__btn-icon {
+    stroke: #fff;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+}

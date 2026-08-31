@@ -1,0 +1,67 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.card {
+  width: 100%;
+  max-width: 400px;
+
+  &__btn {
+    @include h1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    min-height: 260px;
+    color: $color-btn-secondary;
+    overflow: hidden;
+    background: linear-gradient(232deg, #264eed, #57a2f7);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &::before {
+      background: linear-gradient(232deg, #135cc9 14.34%, #51bbd8 90.69%);
+    }
+    &:active::after {
+      background: linear-gradient(232deg, #0025b3 14.34%, #286ebf 90.69%);
+    }
+
+    &:focus-visible::before,
+    &:hover::before {
+      opacity: 1;
+    }
+    &:active::after {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    z-index: 1;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    fill: $color-btn-secondary;
+    z-index: 1;
+  }
+
+  &__descr {
+    @include text-lg;
+    color: $color-text-disabled;
+    text-align: center;
+  }
+}

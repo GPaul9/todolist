@@ -1,0 +1,35 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/variables' as *;
+
+.controls {
+  &__btn {
+    @include icon-button;
+  }
+  &__filter-icon {
+    fill: #3c7ed1;
+  }
+}
+
+.dropdown {
+  &__content {
+    position: relative;
+    padding: 20px 24px;
+    border: 1px solid $color-input-outline-primary;
+    border-radius: 8px;
+    max-height: 75vh;
+    background-color: $color-bg-card;
+    overflow-y: auto;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: $color-input-outline-primary;
+    transform: translateX(-50%) rotate(45deg);
+    transition: background-color 0.2s ease-out;
+  }
+}

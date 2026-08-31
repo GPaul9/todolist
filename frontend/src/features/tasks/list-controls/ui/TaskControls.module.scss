@@ -1,0 +1,63 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.controls {
+  &__search {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 12px 10px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    @include respond-to(sm) {
+      gap: 14px;
+    }
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
+  }
+
+  &__filter-values {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  &__priority {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__title {
+    @include h3;
+    margin: 0;
+    margin-bottom: 12px;
+    color: $color-text-primary;
+  }
+
+  &__subtitle {
+    @include text-md;
+    margin: 0;
+    margin-bottom: 8px;
+    color: $color-text-primary;
+  }
+
+  &__btn {
+    width: auto;
+  }
+}

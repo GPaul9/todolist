@@ -1,0 +1,46 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-btn {
+  @include text-md;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid $color-input-outline-primary;
+  border-radius: 8px;
+  color: $color-text-primary;
+  gap: 12px;
+  outline: none;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border 0.4s ease;
+
+  &:focus-visible {
+    border-color: $color-btn-focus;
+    color: $color-btn-focus;
+  }
+  &:hover {
+    border-color: $color-btn-hover;
+    color: $color-btn-hover;
+  }
+  &:active {
+    border-color: $color-btn-active;
+    color: $color-btn-active;
+  }
+
+  &__icon-wrapper > * {
+    width: 16px;
+    height: 16px;
+  }
+}

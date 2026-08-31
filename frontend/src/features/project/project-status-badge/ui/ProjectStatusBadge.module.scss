@@ -1,0 +1,19 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.badge {
+  @include hints;
+  padding: 4px 8px;
+  border-radius: 12px;
+  height: max-content;
+
+  &_active {
+    color: $color-label-text-active;
+    background-color: $color-label-active;
+  }
+
+  &_archive {
+    color: $color-label-text-archived;
+    background-color: $color-label-archived;
+  }
+}

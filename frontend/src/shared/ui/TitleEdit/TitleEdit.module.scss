@@ -1,0 +1,55 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.btn {
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__title {
+    @include text-button;
+    @include h2;
+    margin: 8px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $color-text-primary;
+
+    @include respond-to(lg) {
+      margin: 5px 0 6px;
+    }
+    @include respond-to(sm) {
+      margin: 6px 0;
+    }
+
+    &_disabled {
+      color: $color-text-secondary;
+
+      user-select: none;
+      &:focus-visible,
+      &:hover,
+      &:active {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.input {
+  @include text-lg;
+  padding: 7px 10px;
+  width: 100%;
+  color: $color-text-primary;
+
+  &__container {
+    width: 100%;
+  }
+}

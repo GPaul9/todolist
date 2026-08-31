@@ -1,0 +1,9 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.policy-link {
+  @include text-md;
+
+  @include text-button;
+}

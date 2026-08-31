@@ -1,0 +1,2088 @@
+{
+  "info": {
+    "_postman_id": "5f1996e0-9a6f-4c8f-9480-a565b409fbfc",
+    "name": "Todolist",
+    "description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28293318"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "Login via gitlab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"mq7676@mail.ru\",\r\n    \"password\": \"Sud123456789!\"\r\n}\r\n"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/gitlab/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "gitlab",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gitlab Callback",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/gitlab/callback?code=6814662a499e4067df83f2c294d28bc7cb4efbcbfecd77731294ecae06e1e94e",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "gitlab",
+                "callback"
+              ],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "6814662a499e4067df83f2c294d28bc7cb4efbcbfecd77731294ecae06e1e94e"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login via google",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"mq7676@mail.ru\",\r\n    \"password\": \"Sud123456789!\"\r\n}\r\n"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/google/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "google",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Google Callback",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/google/callback?code=6814662a499e4067df83f2c294d28bc7cb4efbcbfecd77731294ecae06e1e94e",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "google",
+                "callback"
+              ],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "6814662a499e4067df83f2c294d28bc7cb4efbcbfecd77731294ecae06e1e94e"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\": \"Test\",\r\n    \"last_name\": \"Testov\",\r\n    \"email\": \"mojiotok167@gmail.com\",\r\n    \"password\": \"Sud123456789!\",\r\n    \"repeat_password\": \"Sud123456789!\",\r\n    \"consent_personal_data\": true,\r\n    \"privacy_policy_agreement\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Confirm verify email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"L-dOM0VrKsHju2fPTx51B16BSVkQnOPBXjpD69WcgUI\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/confirm/verify",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "confirm",
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send verify email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/send-verification-email?email=mojiotok167@gmail.com",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "send-verification-email"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "mojiotok167@gmail.com"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// pm.test(\"Successful POST request\", function () {",
+                  "//     pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "// });",
+                  "",
+                  "let jsonData = pm.response.json();",
+                  "pm.environment.set(\"access_token\", jsonData.access_token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "mojiotok167@gmail.com",
+                  "type": "text",
+                  "uuid": "745eba51-d1be-49f5-8b62-66f1d6e0d020"
+                },
+                {
+                  "key": "password",
+                  "value": "Sud123456789!",
+                  "type": "text",
+                  "uuid": "646eb61d-d20f-491c-9650-cd70283a05c4"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "Login via json",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// pm.test(\"Successful POST request\", function () {",
+                  "//     pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "// });",
+                  "",
+                  "let jsonData = pm.response.json();",
+                  "pm.environment.set(\"access_token\", jsonData.access_token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"mojiotok167@gmail.com\",\r\n  \"password\": \"Sud123456789!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/applogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "applogin"
+              ]
+            },
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let jsonData = pm.response.json();\r",
+                  "if (jsonData.access_token) {\r",
+                  "    pm.environment.set(\"access_token\", jsonData.access_token);\r",
+                  "    console.log(\"Новый Access Token сохранен\");\r",
+                  "}\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/refresh",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/forgot-password?email=mojiotok167@gmail.com",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "forgot-password"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "mojiotok167@gmail.com"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"token\": \"string\",\r\n    \"new_password\": \"string\",\r\n    \"confirm_password\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/reset/verify",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "reset",
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update profile",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\": \"string\",\r\n    \"last_name\": \"string\",\r\n    \"email\": \"string\",\r\n    \"password\": \"string\",\r\n    \"new_password\": \"string\",\r\n    \"repeat_password\": \"string\",\r\n    \"is_email_verified\": true,\r\n    \"avatar_path\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete avatar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\": \"string\",\r\n    \"last_name\": \"string\",\r\n    \"email\": \"string\",\r\n    \"password\": \"string\",\r\n    \"new_password\": \"string\",\r\n    \"repeat_password\": \"string\",\r\n    \"is_email_verified\": true,\r\n    \"avatar_path\": \"string\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/profile/avatar",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile",
+                "avatar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete avatar Copy",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "uuid": "79b89482-5ffd-4cf5-a598-c0e98d6e7674",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/profile/avatar",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile",
+                "avatar"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Create project",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Test3\",\r\n  \"description\": \"Test3\",\r\n  \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/projects",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get projects",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Projects list returned\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/projects?page=1&count=9",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "min=1"
+                },
+                {
+                  "key": "count",
+                  "value": "9",
+                  "description": "min=1",
+                  "type": "text"
+                },
+                {
+                  "key": "search",
+                  "value": "Test",
+                  "description": "title, description",
+                  "disabled": true
+                },
+                {
+                  "key": "statuses",
+                  "value": "active",
+                  "description": "active/paused/archived_by_user/archived_by_cascade",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_at",
+                  "description": "created_at/title/update_at",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "desc",
+                  "description": "desc/asc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get project by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/projects/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Patch project",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"string\",\r\n    \"description\": \"string\",\r\n    \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/projects/4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete project",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Update Test1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/projects/4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Archive project",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Update Test1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/projects/5/archive",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "5",
+                "archive"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unarchive project",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Update Test1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/projects/5/unarchive",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "5",
+                "unarchive"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Lists",
+      "item": [
+        {
+          "name": "Create lists",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Test List9 in Project5\",\r\n  \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/project/5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "project",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get lists",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/project/1?page=1&count=9",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "project",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "statuses",
+                  "value": "active",
+                  "description": "active/paused/archived_by_user/archived_by_cascade",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "count",
+                  "value": "9"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Patch list",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"string\",\r\n  \"order\": 0,\r\n  \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete list",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful DELETE request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "5"
+              ]
+            },
+            "description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "Reorder list",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"project_id\": 0,\r\n  \"ordered_ids\": [\r\n    0\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/project/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "project",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Archive list",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"archived List3\",\r\n  \"status\": \"archived_by_user\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/1/archive",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "1",
+                "archive"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unarchive list",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"archived List3\",\r\n  \"status\": \"archived_by_user\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/1/unarchive",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "1",
+                "unarchive"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Create task",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Test Task in List6 in Project4\",\r\n\"deadline\": \"2026-04-28T14:41:20.133Z\",\r\n  \"description\": \"Test\",\r\n  \"priority\": \"high\",\r\n  \"status\":\"in_progress\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/lists/3/tasks",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "3",
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get tasks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/lists/1/tasks?status=done&page=1&size=25",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "lists",
+                "1",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "test1",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "done",
+                  "description": "todo, in_progress, done"
+                },
+                {
+                  "key": "priority",
+                  "value": "medium",
+                  "description": "low, medium, high",
+                  "disabled": true
+                },
+                {
+                  "key": "date_from",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "date_to",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "tags_ids",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "tags_ids",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "match_all_tags",
+                  "value": "True",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_by",
+                  "value": "deadline",
+                  "description": "created_at, title, deadline",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "asc",
+                  "description": "asc, desc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "25"
+                },
+                {
+                  "key": "archived",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get task by id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/20",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "20"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "Update task",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Update Task21\",\r\n    \"description\": \"Update Test21\",\r\n    \"status\":\"todo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/21",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "21"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/49",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "49"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search and Filter tasks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/?search=update&page=1&size=13",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "update"
+                },
+                {
+                  "key": "priority",
+                  "value": "medium",
+                  "description": "low, medium, high",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "done",
+                  "description": "todo, in_progress, done",
+                  "disabled": true
+                },
+                {
+                  "key": "match_all_tags",
+                  "value": "True",
+                  "disabled": true
+                },
+                {
+                  "key": "tags_ids",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "tags_ids",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_by",
+                  "value": "title",
+                  "description": "created_at, title, deadline",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "desc",
+                  "description": "asc, desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "13"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reorder",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"new_position\": 0,\r\n  \"new_task_list_id\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/14/reorder",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "14",
+                "reorder"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "priority",
+                  "value": "medium",
+                  "description": "low, medium, high",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "in_progress",
+                  "description": "todo, in_progress, done",
+                  "disabled": true
+                },
+                {
+                  "key": "match_all_tags",
+                  "value": "True",
+                  "disabled": true
+                },
+                {
+                  "key": "tags_ids",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "tags_ids",
+                  "value": "3",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_by",
+                  "value": "deadline",
+                  "description": "created_at, title, deadline",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "asc",
+                  "description": "asc, desc",
+                  "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Tag",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/3/tags/9",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "3",
+                "tags",
+                "9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete tasks tag",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/28/tags/3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "28",
+                "tags",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tag",
+      "item": [
+        {
+          "name": "Create Tag",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"1\",\r\n    \"color\": \"#FF0000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/tags",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tags"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get tags",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tags",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tags"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete tag",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tags/8",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tags",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update tag",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Someq 1\",\r\n    \"color\": \"#FF00FF\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/tags/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tags",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SubTask",
+      "item": [
+        {
+          "name": "Create SubTask",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Test6 in project5\",\r\n    \"description\": \"Test5\",\r\n    \"status\": \"todo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/22/subtasks",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "22",
+                "subtasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get tasks subtasks",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/22/subtasks",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "22",
+                "subtasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete subtask",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/subtasks/15",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "subtasks",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update subtask",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"todo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/subtasks/21",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "subtasks",
+                "21"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Attachments",
+      "item": [
+        {
+          "name": "Get upload-url",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"original_filename\": \"test_image.png\",\r\n    \"size\": 1024,\r\n    \"mime_type\": \"image/jpg\",\r\n    \"parent_type\": \"subtask\",\r\n    \"parent_id\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/attachments/upload-url",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "attachments",
+                "upload-url"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload attachment",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/C:/Users/Nick/Desktop/Nick/Travel/2025/Мурманск/Правила страхования непредвиденных расходов путешественников.pdf"
+              }
+            },
+            "url": {
+              "raw": "{{upload_url}}",
+              "host": [
+                "{{upload_url}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Confirm uploaded",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"original_filename\": \"test_image.png\",\r\n        \"size\": 1024,\r\n        \"mime_type\": \"image/jpg\",\r\n        \"parent_type\": \"subtask\",\r\n        \"parent_id\": 2,\r\n        \"s3_key\": \"attachments/subtask/2/1f02ff7a-f233-4ad7-8dc8-f6305170c7c5.png\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/attachments/confirm",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "attachments",
+                "confirm"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get task attachements",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/1/attachments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "1",
+                "attachments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get subtask attachements",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/subtasks/1/attachments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "subtasks",
+                "1",
+                "attachments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get download url",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/attachments/30362a11-5c42-4009-a984-14f28af91b44/download",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "attachments",
+                "30362a11-5c42-4009-a984-14f28af91b44",
+                "download"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task Attachment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Test3\",\r\n    \"description\": \"Test3\",\r\n    \"status\": \"todo\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/1/attachments/017cdcb0-f715-4c65-b8f6-d603fec4d102",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "1",
+                "attachments",
+                "017cdcb0-f715-4c65-b8f6-d603fec4d102"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Subtask Attachment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Test3\",\r\n    \"description\": \"Test3\",\r\n    \"status\": \"todo\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/subtasks/1/attachments/fa8cfdae-458a-4f6d-9967-6d9f829a3cea",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "subtasks",
+                "1",
+                "attachments",
+                "fa8cfdae-458a-4f6d-9967-6d9f829a3cea"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reminders",
+      "item": [
+        {
+          "name": "Add reminder",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reminder_at\": \"2026-05-24T20:48:59.000Z\",\r\n  \"reminder_channel\": \"webpush\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/5/reminders",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "5",
+                "reminders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get reminders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reminder_at\": \"2026-03-31T10:08:58.334Z\",\r\n  \"reminder_channel\": \"email\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/1/reminders",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tasks",
+                "1",
+                "reminders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update reminder",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reminder_at\": \"2026-05-07T14:50:00Z\",\r\n  \"reminder_channel\": \"email\",\r\n  \"task_id\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/reminders/16",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reminders",
+                "16"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete reminder",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reminder_at\": \"2026-03-31T10:08:58.334Z\",\r\n  \"reminder_channel\": \"email\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/reminders/14",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reminders",
+                "14"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WebPush",
+      "item": [
+        {
+          "name": "Get all user subscriptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/webpush",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "webpush"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "register sub",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"endpoint\": \"https://fcm.googleapis.com/fcm/send/fake-endpoint-for-testing\",\r\n  \"keys\": {\r\n    \"p256dh\": \"BOrVvKZ9rFk1qJQ7mN8XyLzPwQrStUvWxYzAbCdEfGhIjKlMnOpQrStUvWxYzA=\",\r\n    \"auth\": \"cK0jLmNoPqRsTuVwXyZaBcDeFgHiJkLmNoPqRsTuVw==\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/webpush/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "webpush",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ]
+}

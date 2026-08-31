@@ -1,0 +1,99 @@
+image: node:20
+
+stages:
+  - lint
+  - format
+  - build
+  - pages
+
+variables:
+  NODE_ENV: "production"
+
+cache:
+  key: "${CI_COMMIT_REF_SLUG}-npm"
+  paths:
+    - node_modules/
+
+before_script:
+  - npm ci
+
+lint:
+  stage: lint
+  script:
+    - npm run lint
+  tags:
+    - saas-postgres-stage
+    - sld-postgres-stage
+    - sps
+    - nat-ocw
+    - ncr
+    - nginx-config-reloader
+    - saas-postgres-production
+    - sld-postgres-production
+    - spp
+  only:
+    - merge_requests
+    - main
+
+format:
+  stage: format
+  script:
+    - npm run format
+  tags:
+    - saas-postgres-stage
+    - sld-postgres-stage
+    - sps
+    - nat-ocw
+    - ncr
+    - nginx-config-reloader
+    - saas-postgres-production
+    - sld-postgres-production
+    - spp
+  only:
+    - merge_requests
+    - main
+
+build:
+  stage: build
+  script:
+    - npm run build
+  tags:
+    - saas-postgres-stage
+    - sld-postgres-stage
+    - sps
+    - nat-ocw
+    - ncr
+    - nginx-config-reloader
+    - saas-postgres-production
+    - sld-postgres-production
+    - spp
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  only:
+    - merge_requests
+    - main
+
+pages:
+  stage: pages
+  script:
+    - cp dist/index.html dist/404.html
+    - mv dist public
+  tags:
+    - saas-postgres-stage
+    - sld-postgres-stage
+    - sps
+    - nat-ocw
+    - ncr
+    - nginx-config-reloader
+    - saas-postgres-production
+    - sld-postgres-production
+    - spp
+  artifacts:
+    paths:
+      - public
+  dependencies:
+    - build
+  only:
+    - main

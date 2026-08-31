@@ -1,0 +1,108 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.card {
+  display: flex;
+  gap: 20px;
+  align-items: start;
+  background-color: $color-bg-card;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+
+  @include respond-to(sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+  }
+
+  &__id {
+    @include text-md;
+    color: $color-text-secondary;
+    margin-bottom: 4px;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    min-width: 0;
+    flex-grow: 1;
+
+    @include respond-to(sm) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__info {
+    @include h1;
+    margin: 0 0 10px 0;
+    display: flex;
+    gap: 4px;
+
+    @include respond-to(sm) {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+  }
+
+  &__date {
+    @include text-md;
+    position: absolute;
+    right: 20px;
+    top: 21px;
+    display: flex;
+    flex-direction: column;
+    color: $color-text-secondary;
+
+    @include respond-to(md) {
+      position: static;
+      flex-direction: column;
+      margin-bottom: 8px;
+      gap: 4px;
+    }
+
+    @include respond-to(sm) {
+      flex-direction: row;
+    }
+  }
+
+  &__help {
+    @include text-md;
+    margin-bottom: 36px;
+    max-width: 320px;
+    color: $color-text-secondary;
+
+    @include respond-to(sm) {
+      max-width: 300px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__btn {
+    width: unset;
+  }
+}

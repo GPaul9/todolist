@@ -1,0 +1,179 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.modal {
+  background-color: $color-bg-card;
+  width: 100%;
+  max-width: 675px;
+  height: 90vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 0 0 8px;
+  position: relative;
+
+  @include respond-to(md) {
+    height: 80vh;
+    width: 100vw;
+    border-radius: 8px 8px 0 0;
+  }
+
+  &__close {
+    @include icon-button;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: start;
+  }
+
+  &__date {
+    @include text-md;
+    color: $color-text-disabled;
+  }
+
+  &__middle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__left {
+    gap: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $color-icons-info;
+    }
+
+    span {
+      @include text-lg;
+      color: $color-text-primary;
+    }
+  }
+
+  &__right {
+    @include text-md;
+    color: $color-text-primary;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &__name {
+    @include text-md;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    max-width: 100px;
+  }
+
+  &__btn {
+    @include text-button;
+  }
+
+  &__delete {
+    width: fit-content;
+    margin-top: auto;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  &__deleteMobile {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__completeBtn {
+    min-width: 220px;
+    &[data-style='success'] {
+      background-color: $color-status-success;
+      border-color: $color-status-success;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &:hover {
+        background-color: $color-status-success-hover;
+        border-color: $color-status-success-hover;
+        color: $color-status-success;
+      }
+    }
+  }
+
+  &__tooltipBadge {
+    @include text-lg;
+    background-color: $color-btn-focus;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition:
+      color 0.2s ease-out,
+      background-color 0.2s ease-out;
+
+    &:hover {
+      color: $color-primary;
+      background-color: $color-btn-primary;
+    }
+  }
+
+  &__tooltipList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__tooltipDate {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__tooltipNumbers {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__tooltipClose {
+    background-color: $color-primary;
+    border-radius: 3px;
+
+    svg {
+      fill: $color-btn-primary;
+    }
+  }
+}

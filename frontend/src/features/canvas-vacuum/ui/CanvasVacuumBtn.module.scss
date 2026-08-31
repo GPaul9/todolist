@@ -1,0 +1,54 @@
+@use 'app/styles/variables' as *;
+
+.vacuum {
+  position: fixed;
+  display: flex;
+  align-items: start;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &__trigger {
+    border: 3px solid rgba($color-icons-info, 0.3);
+    border-radius: 1000px;
+    padding: 20px 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    outline: none;
+
+    &:focus-visible .vacuum__img,
+    &:hover .vacuum__img {
+      scale: 1.05;
+    }
+  }
+
+  &__img {
+    aspect-ratio: 384/257;
+    width: 70px;
+    transition: scale 0.2s linear;
+  }
+
+  &__trigger-close {
+    border: 1px solid rgba($color-icons-info, 0.3);
+    border-radius: 50%;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+    &:focus-visible .vacuum__icon,
+    &:hover .vacuum__icon {
+      scale: 1.1;
+    }
+  }
+
+  &__icon {
+    fill: $color-icons-info;
+    width: 24px;
+    height: 24px;
+    transition: scale 0.2s linear;
+  }
+}

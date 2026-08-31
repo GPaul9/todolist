@@ -1,0 +1,19 @@
+@use 'app/styles/mixins' as *;
+
+.control-btn {
+  padding: 3px;
+
+  @include icon-button;
+
+  > svg {
+    width: 8px;
+    height: 14px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    &_right {
+      transform: rotate(180deg);
+    }
+  }
+}

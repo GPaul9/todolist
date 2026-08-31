@@ -1,0 +1,61 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.time {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  border: 1px solid $color-input-outline-primary;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__text {
+    @include text-md;
+  }
+
+  &__field {
+    @include hints;
+    border: 1px solid $color-btn-secondary;
+    outline: none;
+    border-radius: 8px;
+    padding: 2px 12px;
+    user-select: none;
+
+    &:hover {
+      background-color: $color-btn-focus;
+      cursor: pointer;
+    }
+
+    &:focus {
+      background-color: $color-btn-primary;
+      caret-color: $color-primary;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
+
+    appearance: none;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-clear-button {
+      display: none;
+      -webkit-appearance: none;
+    }
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__deadline {
+    @include text-button;
+  }
+}

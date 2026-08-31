@@ -1,0 +1,41 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/mixins' as *;
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include respond-to(sm) {
+    gap: 16px;
+  }
+
+  &__title {
+    @include h1;
+    margin: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: $color-bg-card;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+  }
+
+  &__checkbox {
+    @include checkbox;
+  }
+
+  &__label {
+    @include text-md;
+  }
+}

@@ -1,0 +1,69 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.tooltip {
+  &__trigger {
+    display: flex;
+  }
+
+  &__hint {
+    @include hints;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 16px;
+    border-radius: 8px;
+    white-space: nowrap;
+    background: $color-btn-hover;
+    color: $color-text-light;
+    transition:
+      color 0.2s ease-out,
+      background-color 0.2s ease-out;
+
+    &_primary {
+      background: $color-btn-primary;
+    }
+
+    &_active {
+      background-color: $color-btn-active;
+    }
+
+    &_disabled {
+      background-color: $color-btn-disabled;
+      color: $color-text-secondary;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: $color-btn-hover;
+    transform: rotate(45deg);
+    transition: background-color 0.2s ease-out;
+
+    &[data-side='top'] {
+      bottom: -4px;
+    }
+    &[data-side='bottom'] {
+      top: -4px;
+    }
+    &[data-side='left'] {
+      right: -4px;
+    }
+    &[data-side='right'] {
+      left: -4px;
+    }
+
+    &_primary {
+      background: $color-btn-primary;
+    }
+
+    &_active {
+      background-color: $color-btn-active;
+    }
+  }
+}

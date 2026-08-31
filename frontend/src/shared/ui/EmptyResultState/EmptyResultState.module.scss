@@ -1,0 +1,36 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.emptyState {
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  &__card {
+    @include text-lg;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    max-width: 582px;
+    background-color: $color-bg-card-list;
+    color: $color-text-secondary;
+  }
+
+  &__icon {
+    stroke: $color-icons-info;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__descr {
+    margin: 0;
+  }
+
+  &__text {
+    display: inline-block;
+  }
+}

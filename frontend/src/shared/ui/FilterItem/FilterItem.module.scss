@@ -1,0 +1,17 @@
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+@use 'app/styles/mixins' as *;
+
+.item {
+  @include text-md;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 150px;
+  color: $color-text-primary;
+  cursor: pointer;
+
+  &__checkbox {
+    @include checkbox;
+  }
+}

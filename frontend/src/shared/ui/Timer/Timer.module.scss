@@ -1,0 +1,6 @@
+@use 'app/styles/typography' as *;
+
+.timer {
+  @include hints;
+  color: inherit;
+}

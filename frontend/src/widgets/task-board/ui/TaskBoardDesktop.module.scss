@@ -1,0 +1,52 @@
+@use 'app/styles/mixins' as *;
+
+.board {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  height: 100%;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 0 100px;
+  margin: 0 -100px;
+  padding-bottom: 10px;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0px,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0px,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  );
+
+  @include respond-to(lg) {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 -20px;
+
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0px,
+      black 20px,
+      black calc(100% - 20px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0px,
+      black 20px,
+      black calc(100% - 20px),
+      transparent 100%
+    );
+  }
+}

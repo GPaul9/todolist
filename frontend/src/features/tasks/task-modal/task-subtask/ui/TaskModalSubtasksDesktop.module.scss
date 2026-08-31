@@ -1,0 +1,150 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.subtask {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  gap: 12px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $color-icons-info;
+    }
+
+    span {
+      @include text-lg;
+      color: $color-text-primary;
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__hint {
+    @include text-md;
+    color: $color-icons-info;
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &__left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  &__checkbox {
+    @include checkbox;
+
+    &:disabled {
+      @include disabled-state;
+    }
+  }
+
+  &__name {
+    @include text-md;
+    color: $color-text-primary;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-all;
+
+    &.done {
+      color: $color-text-disabled;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__attach {
+    display: flex;
+    align-items: center;
+    color: $color-icons-hover;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.active {
+      color: $color-icons-primary;
+    }
+
+    &:hover {
+      color: $color-icons-active;
+    }
+  }
+
+  &__delete {
+    @include icon-button;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__fileBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__fileCorrect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__fileError {
+    @include hints;
+    color: $color-status-error;
+  }
+
+  &__creat {
+    @include icon-button;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

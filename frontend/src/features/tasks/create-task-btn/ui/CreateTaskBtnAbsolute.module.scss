@@ -1,0 +1,46 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/variables' as *;
+
+.button {
+  @include icon-button;
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: $color-btn-primary;
+  outline: none;
+  transition: background-color 0.3s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: $color-btn-light;
+    border-radius: 99px;
+  }
+
+  &::after {
+    transform: rotate(90deg);
+  }
+
+  &:focus-visible {
+    background-color: $color-icons-hover;
+  }
+  &:hover {
+    background-color: $color-icons-hover;
+  }
+  &:active {
+    background-color: $color-icons-active;
+  }
+  &:disabled {
+    background-color: $color-icons-info;
+    cursor: default;
+  }
+}

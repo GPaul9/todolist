@@ -1,0 +1,11 @@
+@use 'app/styles/variables' as *;
+@use 'app/styles/typography' as *;
+
+.widget {
+  @include hints;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: $color-text-disabled;
+}

@@ -1,0 +1,11 @@
+@use 'app/styles/mixins' as *;
+
+.toast-container {
+  top: 140px;
+  right: 5px;
+
+  @include respond-to(md) {
+    top: 10px;
+    right: 0;
+  }
+}

@@ -1,0 +1,48 @@
+@use 'app/styles/variables' as *;
+
+.card {
+  padding: 20px 24px;
+  border-radius: 8px;
+  background-color: $color-skeleton-secondary;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  &__status {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__priority {
+    margin-bottom: 20px;
+  }
+
+  &__subtasks {
+    margin-bottom: 6px;
+    justify-content: start;
+  }
+
+  &__deadline {
+    margin-bottom: 8px;
+  }
+
+  &__totals {
+    margin-bottom: 13px;
+    justify-content: flex-end;
+  }
+
+  &__tags {
+    justify-content: flex-start;
+    margin-bottom: 11px;
+  }
+
+  &__actions {
+    width: 100%;
+  }
+}
