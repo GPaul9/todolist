@@ -1,0 +1,5 @@
+node_modules/
+dist/
+# email-letters/
+.idea/
+.env

@@ -1,0 +1,41 @@
+@use 'app/styles/mixins' as *;
+@use 'app/styles/typography' as *;
+@use 'app/styles/variables' as *;
+
+.drop {
+  &__dropzone {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__dropzoneInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    gap: 12px;
+    border: 1px dashed $color-icons-info;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__file {
+    @include hints;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: $color-icons-info;
+  }
+
+  &__link {
+    cursor: pointer;
+    color: $color-text-active;
+    text-decoration: underline;
+  }
+}
